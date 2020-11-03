@@ -10,11 +10,23 @@ const RequestList = () => {
   //const filteredRequests = selectRequests(requests, filters);
 
   return (
-    <div>
-      <h1>Request List</h1>
-      {requests.map((request) => {
-        return <RequestListItem key={request.id} {...request} />;
-      })}
+    <div className="content-container">
+      <div className="list-header">
+        <div className="show-for-mobile">Request</div>
+        <div className="show-for-desktop">Request</div>
+        <div className="show-for-desktop">Type</div>
+      </div>
+      {
+        requests.length === 0 ? (
+          <div className="list-item list-item--message">
+            <span>No requests</span>
+          </div>
+        ) : (
+            requests.map((request) => {
+              return <RequestListItem key={request.id} {...request} />;
+            })
+          )
+      }
     </div>
   );
 };

@@ -9,13 +9,19 @@ const AddRequestPage = (props) => {
 
   return (
     <div>
-      <h3>Add Request</h3>
-      <RequestForm
-        onSubmit={(request) => {
-          dispatch(startAddRequest(request));  //async 
-          props.history.push('/monitor');
-        }}
-      />
+      <div className="page-header">
+        <div className="content-container">
+          <h1 className="page-header__title">Add Request</h1>
+        </div>
+      </div>
+      <div className="content-container">
+        <RequestForm
+          onSubmit={(request) => {
+            dispatch(startAddRequest(request));  //async 
+            props.history.push('/monitor');
+          }}
+        />
+      </div>
     </div>
   )
 }

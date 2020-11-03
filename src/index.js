@@ -8,6 +8,7 @@ import { startSetRequests } from './store/actions/requests';
 import { login, logout } from './store/actions/auth';
 import { firebase } from './firebase/firebase';
 import mySocket from './server/mySocket';
+import './styles/styles.scss';
 
 const store = configureStore();
 

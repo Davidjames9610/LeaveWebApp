@@ -12,11 +12,15 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <h1>Leave Management Assistant</h1>
-      <Link to="/create">Request</Link>
-      <Link to='/monitor'> Monitor</Link>
-      <button onClick={logout}>Logout</button>
+    <header className="header">
+      <div className="content-container">
+        <div className="header__content">
+          <Link className="header__title" to='/monitor'>
+            <h1>Leave Manager</h1>
+          </Link>
+          <button className="button button--link" onClick={logout}>Logout</button>
+        </div>
+      </div>
     </header>
   )
 };

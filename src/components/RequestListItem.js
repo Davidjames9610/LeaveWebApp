@@ -4,19 +4,22 @@ import moment from 'moment';
 
 const RequestListItem = ({ firstName, lastName, type, reason, startDate, endDate, id }) => (
   <div>
-    <Link to={`/edit/${id}`}>
-      <h3>{firstName} {lastName}</h3>
+    <Link className="list-item" to={`/edit/${id}`}>
+      <div>
+        <h3 className="list-item__title">{firstName}{lastName}</h3>
+        <span className="list-item__sub-title" >{moment(startDate).format('MMMM Do, YYYY')}</span>
+      </div>
+      <h3 className="list-item__data">{type}</h3>
     </Link>
-    <p>type: {type}</p>
-    <p>note: {reason}</p>
-    <p>
-      start: {moment(startDate).format('MMMM Do, YYYY')}
-    </p>
-    <p>
-      end: {moment(endDate).format('MMMM Do, YYYY')}
-    </p>
-    <p>Duration: {moment(endDate).diff(moment(startDate), 'days') + 1}</p>
   </div>
 );
 
 export default RequestListItem;
+
+    // <p>type: {type}</p>
+    // <p>note: {reason}</p>
+
+    // <p>
+    // end: {moment(endDate).format('MMMM Do, YYYY')}
+    // </p>
+    // <p>Duration: {moment(endDate).diff(moment(startDate), 'days') + 1}</p>

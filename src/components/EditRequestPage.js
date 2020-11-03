@@ -11,17 +11,24 @@ const EditRequestPage = (props) => {
 
   return (
     <div>
-      <RequestForm
-        request={request}
-        onSubmit={(newrequest) => {
-          dispatch(startEditRequest(request.id, newrequest));  //async 
+      <div className="page-header">
+        <div className="content-container">
+          <h1 className="page-header__title">Edit Request</h1>
+        </div>
+      </div>
+      <div className="content-container">
+        <RequestForm
+          request={request}
+          onSubmit={(newrequest) => {
+            dispatch(startEditRequest(request.id, newrequest));  //async 
+            props.history.push('/monitor');
+          }}
+        />
+        <button className="button button--secondary" onClick={() => {
+          dispatch(startRemoveRequest({ id: request.id }));
           props.history.push('/monitor');
-        }}
-      />
-      <button onClick={() => {
-        dispatch(startRemoveRequest({ id: request.id }));
-        props.history.push('/monitor');
-      }}>Remove</button>
+        }}>Remove Request</button>
+      </div>
     </div>
   );
 };
