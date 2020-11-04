@@ -7,15 +7,8 @@ import "react-dates/lib/css/_datepicker.css";
 const RequestForm = (props) => {
 
     const [state, setState] = useState({
-        // description: props.request ? props.request.description : "",
-        // note: props.request ? props.request.note : "",
-        // amount: props.request ? (props.request.amount / 100).toString() : "",
-        // createdAt: props.request ? moment(props.request.createdAt) : moment(),
-        // calendarFocused: false,
-        // error: ''
         firstName: props.request ? props.request.firstName : "",
         lastName: props.request ? props.request.lastName : "",
-        //duration: props.request ? moment(props.request.duration) : moment(),
         reason: props.request ? props.request.reason : "",
         calendarFocused: false,
         error: ''
@@ -27,6 +20,8 @@ const RequestForm = (props) => {
         startDate: moment(),
         endDate: moment(),
     });
+
+    const [duration, setDuration] = useState(props.duration ? props.request.duration : 1);
 
     //range date picker handler functions
     const [focusedInput, setFocusedInput] = useState(null);
@@ -55,6 +50,7 @@ const RequestForm = (props) => {
                 reason: state.reason,
                 startDate: range.startDate.valueOf(),
                 endDate: range.endDate.valueOf(),
+                duration: duration
             });
         }
     };
@@ -62,6 +58,18 @@ const RequestForm = (props) => {
     const onTypeChange = (e) => {
         setType(e.target.value);
         console.log(e.target.value);
+    }
+
+    const onDatesChange = ({ startDate, endDate }) => {
+
+        setRange({ startDate, endDate })
+
+        const time = (moment(endDate).diff(moment(startDate), 'days') + 1)
+
+        if (time) {
+            console.log(time);
+            setDuration(time);
+        }
     }
 
     return (
@@ -102,7 +110,7 @@ const RequestForm = (props) => {
 
                 </select>
                 <textarea
-                    placeholder="Add a note for your request"
+                    placeholder="Please add a note for your leave request"
                     value={state.reason}
                     name="reason"
                     className="textarea"
@@ -114,12 +122,16 @@ const RequestForm = (props) => {
                     startDateId="your_unique_start_date_id"
                     endDate={range.endDate}
                     endDateId="your_unique_end_date_id"
-                    onDatesChange={({ startDate, endDate }) => setRange({ startDate, endDate })}
+                    onDatesChange={onDatesChange}
                     focusedInput={focusedInput}
                     onFocusChange={onFocusChangeRangeHandler}
                 />
                 <div>
-                    <p className="text-input">duration: {moment(range.endDate).diff(moment(range.startDate), 'days') + 1}</p>
+                    <div className="text-input">
+                        <span>You are requesting {duration}</span>
+                        {duration === 1 ? (<span> day</span>) : (<span> days</span>)}
+                        <span> of leave</span>
+                    </div>
                     <button className="button">Save Request</button>
                 </div>
             </form>

@@ -8,6 +8,7 @@ import { startSetRequests } from './store/actions/requests';
 import { login, logout } from './store/actions/auth';
 import { firebase } from './firebase/firebase';
 import mySocket from './server/mySocket';
+import 'bootstrap/dist/css/bootstrap.css';
 import './styles/styles.scss';
 
 const store = configureStore();
@@ -27,9 +28,14 @@ const renderApp = () => {
   }
 };
 
+const loadingPage = (
+  <div className="loader">
+    <p>loading...</p>
+  </div>
+);
 
 ReactDOM.render(
-  <p>loading...</p>,
+  loadingPage,
   document.getElementById('root')
 );
 

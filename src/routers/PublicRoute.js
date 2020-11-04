@@ -9,7 +9,7 @@ export const PublicRoute = ({
 }) => (
     <Route {...rest} component={(props) => (
       isAuthenticated ? (
-        <Redirect to="/monitor" />
+        <Redirect to="/create" />
       ) : (
           <div>
             <Component {...props} />

@@ -1,18 +1,39 @@
 .header {
-  background: $dark-blue;
+  background: $white;
 }
 
 .header__content {
-  align-items: center;
+  align-items: left;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   padding: $m-size 0;
+
+  @media(min-width: $desktop-breakpoint){
+  flex-direction: row;
+  justify-content: space-between;
+
+  }
 }
 
 .header__title {
+  color: $blue;
+  text-decoration: none;
+  padding: 2px;
+  margin: 0; 
+}
+
+.header__button{
   color: white;
   text-decoration: none;
-  h1 {
-    margin: 0;
-  }
+  padding: 0 $s-size;
+  margin: 0;
+  background: $button-red;
+  border:none;
+  font-size: $font-size-large;
+  font-weight: 300;
 }
+
+
+
+
+

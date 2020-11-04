@@ -1,6 +1,6 @@
 .box-layout {
   align-items: center;
-  background: url('../images/bg.jpg');
+  background: $unnamed-color-f6f8f9;
   background-size: cover;
   display: flex;
   height: 100vh;
@@ -9,9 +9,9 @@
 }
 
 .box-layout__box {
-  background: fade-out(white, .15);
+  background: $white;
   border-radius: 3px;
-  padding: $l-size $m-size;
+  padding: $m-size $m-size;
   text-align: center;
   width: 35rem;
 }
@@ -19,6 +19,14 @@
 .box-layout__title {
   margin: 0 0 $m-size 0;
   line-height: 1;
+  font-style: $unnamed-font-weight-bold; 
+  color: $unnamed-color-72acff;
+  opacity: 1;
+}
+
+.normal-text{
+  color:$title-grey;
+  size: $m-size;
 }
 
 

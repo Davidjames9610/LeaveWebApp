@@ -1,5 +1,5 @@
 .button {
-  background: $blue;
+  background: $button-red;
   border: none;
   color: white;
   display: inline-block;
@@ -12,6 +12,7 @@
 
 .button--link {
   background: none;
+  color: $title-grey;
 }
 
 .button--secondary {

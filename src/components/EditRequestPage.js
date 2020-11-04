@@ -13,7 +13,7 @@ const EditRequestPage = (props) => {
     <div>
       <div className="page-header">
         <div className="content-container">
-          <h1 className="page-header__title">Edit Request</h1>
+          <h1 className="page-header__title">Edit Leave Request</h1>
         </div>
       </div>
       <div className="content-container">
@@ -27,7 +27,7 @@ const EditRequestPage = (props) => {
         <button className="button button--secondary" onClick={() => {
           dispatch(startRemoveRequest({ id: request.id }));
           props.history.push('/monitor');
-        }}>Remove Request</button>
+        }}>Remove Leave Request</button>
       </div>
     </div>
   );

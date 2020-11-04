@@ -6,8 +6,10 @@ const RequestListItem = ({ firstName, lastName, type, reason, startDate, endDate
   <div>
     <Link className="list-item" to={`/edit/${id}`}>
       <div>
-        <h3 className="list-item__title">{firstName}{lastName}</h3>
-        <span className="list-item__sub-title" >{moment(startDate).format('MMMM Do, YYYY')}</span>
+        <h3 className="list-item__title">{firstName} {lastName}</h3>
+        <span className="list-item__sub-title" >from {moment(startDate).format('D/M/YYYY')}</span>
+        <span className="list-item__sub-title" > to {moment(endDate).format('D/M/YYYY')}</span>
+        <span className="list-item__sub-title" > ({moment(endDate).diff(moment(startDate), 'days') + 1})</span>
       </div>
       <h3 className="list-item__data">{type}</h3>
     </Link>
