@@ -1,0 +1,29 @@
+// Will edit everything selected including everything between a range of dates
+.CalendarDay__selected_span {
+  background: $unnamed-color-72acff; //background
+  color: white; //text
+  border: 1px solid $unnamed-color-a6adb4; //default styles include a border
+}
+
+// Will edit selected date or the endpoints of a range of dates
+.CalendarDay__selected {
+  background: $unnamed-color-52e5ba;
+  color: white;
+}
+
+
+.CalendarDay__selected:hover {
+  background: $unnamed-color-72acff;
+  color: white;
+}
+
+$unnamed-color-72acff: #72ACFF;
+$unnamed-color-a6adb4: #A6ADB4;
+$unnamed-color-52e5ba: #52E5BA;
+$unnamed-color-ffffff: #FFFFFF;
+$unnamed-color-ffc96c: #FFC96C;
+$unnamed-color-ebeded: #EBEDED;
+$unnamed-color-202124: #202124;
+$unnamed-color-ff4d4d: #FF4D4D;
+$unnamed-color-f6f8f9: #F6F8F9;
+$unnamed-color-fa6980: #FA6980;

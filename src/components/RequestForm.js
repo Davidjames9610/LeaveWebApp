@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import { SingleDatePicker, DateRangePicker, DateRangePickerInput } from "react-dates";
+import { DateRangePicker } from "react-dates";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 
@@ -14,7 +14,7 @@ const RequestForm = (props) => {
         error: ''
     });
 
-    const [myType, setType] = useState(props.request ? props.request.type : "Sick");
+    const [myType, setType] = useState(props.request ? props.request.type : "");
 
     const [range, setRange] = useState({
         startDate: moment(),
@@ -99,6 +99,7 @@ const RequestForm = (props) => {
                     className="select"
                     onChange={onTypeChange}
                 >
+                    <option value="" selected disabled hidden>Select Request type</option>
                     <option value="Sick">Sick</option>
                     <option value="Casual">Casual</option>
                     <option value="Maternity">Maternity</option>
@@ -110,7 +111,7 @@ const RequestForm = (props) => {
 
                 </select>
                 <textarea
-                    placeholder="Please add a note for your leave request"
+                    placeholder="Please add a note for your Request"
                     value={state.reason}
                     name="reason"
                     className="textarea"
@@ -126,12 +127,12 @@ const RequestForm = (props) => {
                     focusedInput={focusedInput}
                     onFocusChange={onFocusChangeRangeHandler}
                 />
+                <div className="duration">
+                    <span>You have requested {duration}</span>
+                    {duration === 1 ? (<span> day</span>) : (<span> days</span>)}
+                    <span> of leave</span>
+                </div>
                 <div>
-                    <div className="text-input">
-                        <span>You are requesting {duration}</span>
-                        {duration === 1 ? (<span> day</span>) : (<span> days</span>)}
-                        <span> of leave</span>
-                    </div>
                     <button className="button">Save Request</button>
                 </div>
             </form>

@@ -53,6 +53,7 @@ $unnamed-font-size-13: 13px;
 $unnamed-font-size-16: 16px;
 $unnamed-font-size-24: 24px;
 $unnamed-font-size-32: 32px;
+
 $unnamed-character-spacing-0: 0px;
 $unnamed-line-spacing-20: 20px;
 $unnamed-line-spacing-23: 23px;
@@ -63,84 +64,84 @@ $unnamed-line-spacing-42: 42px;
 
 /* Character Styles */
 .unnamed-character-style-1 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-bold);
-font-size: var($unnamed-font-size-11);
-line-height: var($unnamed-line-spacing-20);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-a6adb4);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-bold;
+font-size: $unnamed-font-size-11;
+line-height: $unnamed-line-spacing-20;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-a6adb4;
 }
 
 .unnamed-character-style-2 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-bold);
-font-size: var($unnamed-font-size-13);
-line-height: var($unnamed-line-spacing-20);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-ffffff);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-bold;
+font-size: $unnamed-font-size-13;
+line-height: $unnamed-line-spacing-20;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-ffffff;
 }
 .unnamed-character-style-3 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-bold);
-font-size: var($unnamed-font-size-13);
-line-height: var($unnamed-line-spacing-20);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-202124);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-bold;
+font-size: $unnamed-font-size-13;
+line-height: $unnamed-line-spacing-20;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-202124;
 }
 .unnamed-character-style-4 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-bold);
-font-size: var($unnamed-font-size-16);
-line-height: var($unnamed-line-spacing-26);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-202124);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-bold;
+font-size: $unnamed-font-size-16;
+line-height: $unnamed-line-spacing-26;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-202124;
 }
 .unnamed-character-style-5 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-bold);
-font-size: var($unnamed-font-size-24);
-line-height: var($unnamed-line-spacing-34);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-202124);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-bold;
+font-size: $unnamed-font-size-24;
+line-height: $unnamed-line-spacing-34;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-202124;
 }
 .unnamed-character-style-6 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-bold);
-font-size: var($unnamed-font-size-32);
-line-height: var($unnamed-line-spacing-42);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-202124);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-bold;
+font-size: $unnamed-font-size-32;
+line-height: $unnamed-line-spacing-42;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-202124;
 }
 .unnamed-character-style-7 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-normal);
-font-size: var($unnamed-font-size-13);
-line-height: var($unnamed-line-spacing-20);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-202124);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-normal;
+font-size: $unnamed-font-size-13;
+line-height: $unnamed-line-spacing-20;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-202124;
 }
 .unnamed-character-style-8 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-normal);
-font-size: var($unnamed-font-size-13);
-line-height: var($unnamed-line-spacing-23);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-a6adb4);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-normal;
+font-size: $unnamed-font-size-13;
+line-height: $unnamed-line-spacing-23;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-a6adb4;
 }
 .unnamed-character-style-9 {
-font-family: var($unnamed-font-family-acumin-pro);
-font-style: var($unnamed-font-style-normal);
-font-weight: var($unnamed-font-weight-normal);
-font-size: var($unnamed-font-size-16);
-line-height: var($unnamed-line-spacing-26);
-letter-spacing: var($unnamed-character-spacing-0);
-color: var($unnamed-color-a6adb4);
+font-family: $unnamed-font-family-acumin-pro;
+font-style: $unnamed-font-style-normal;
+font-weight: $unnamed-font-weight-normal;
+font-size: $unnamed-font-size-16;
+line-height: $unnamed-line-spacing-26;
+letter-spacing: $unnamed-character-spacing-0;
+color: $unnamed-color-a6adb4;
 }
