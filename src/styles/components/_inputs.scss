@@ -1,5 +1,6 @@
 .text-input {
-  border: 1px solid #cacccd;
+  border: 2px solid $border-grey;
+  border-radius: 8px;
   height: 50px;
   font-size: $font-size-large;
   font-weight: 300;
@@ -12,7 +13,14 @@
 
 .textarea {
   height: 10rem;
-  border: 1px solid #cacccd;
+  border: 2px solid $border-grey;
+  border-radius: 8px;
+  font-size: $font-size-large;
+  font-weight: 300;
+  padding: $s-size;
+}
+
+.duration{
   font-size: $font-size-large;
   font-weight: 300;
   padding: $s-size;

@@ -14,7 +14,7 @@ const RequestListFilters = () => {
           <input
             type="text"
             className="text-input"
-            placeholder="Search requests"
+            placeholder="Search Requests"
             value={filters.text}
             onChange={(e) => {
               dispatch(setTextFilter(e.target.value));

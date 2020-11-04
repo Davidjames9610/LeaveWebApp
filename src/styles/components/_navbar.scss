@@ -1,0 +1,43 @@
+.navbar-group{
+    background:$background-grey;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: $m-size;
+}
+
+.navbar-group__item{
+    background-color: white;
+    padding: $vs-size $l-size;
+    margin-right: 5px;
+    justify-content: center;
+    align-items: center;
+    display:flex;
+}
+
+.navbar-group__item:hover{
+    background-color: $unnamed-color-ebeded;
+}
+
+.navbar-group__link{
+    color: $text-black;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.navbar-group__link:hover{
+    text-decoration: none;
+    color: $text-black;
+}
+
+.navbar-group__button{
+    color: $text-black;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 15px;
+    border:none;
+    background-color: transparent;
+}
+
+
+

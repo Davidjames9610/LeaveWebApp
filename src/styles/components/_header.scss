@@ -1,18 +1,8 @@
-.header {
-  background: $white;
-}
 
 .header__content {
   align-items: left;
-  display: flex;
-  flex-direction: column;
   padding: $m-size 0;
-
-  @media(min-width: $desktop-breakpoint){
-  flex-direction: row;
-  justify-content: space-between;
-
-  }
+  background:$background-grey;
 }
 
 .header__title {
@@ -20,18 +10,11 @@
   text-decoration: none;
   padding: 2px;
   margin: 0; 
+  font-size: $font-size-title;
+  font-family: Helvetica;
+  font-weight: bold;
 }
 
-.header__button{
-  color: white;
-  text-decoration: none;
-  padding: 0 $s-size;
-  margin: 0;
-  background: $button-red;
-  border:none;
-  font-size: $font-size-large;
-  font-weight: 300;
-}
 
 
 

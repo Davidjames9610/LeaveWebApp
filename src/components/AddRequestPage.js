@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { startAddRequest } from '../store/actions/requests';
 import RequestForm from './RequestForm';
 
 const AddRequestPage = (props) => {
+
+  useEffect(() => {
+    console.log("props: ", props.history);
+  }, []);
 
   const dispatch = useDispatch();
 

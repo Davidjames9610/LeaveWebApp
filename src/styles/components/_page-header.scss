@@ -9,9 +9,14 @@
 }
 
 .page-header__title {
+
   font-weight: 400;
   margin: 0;
   color: $title-grey;
+  text-align:left;
+  font-size: 24px;
+  font-family: Helvetica;
+  font-weight: bold;
   span {
     font-weight: 700;
   }
