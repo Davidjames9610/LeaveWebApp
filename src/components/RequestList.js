@@ -10,7 +10,7 @@ const RequestList = () => {
 
 
   const filteredRequests = selectRequests(requests, filters);
-  console.log(filteredRequests);
+
   // return (
   //   <div className="content-container">
   //     <div className="list-header">

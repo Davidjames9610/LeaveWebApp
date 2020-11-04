@@ -1,15 +1,28 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { startLogout } from '../store/actions/auth';
+import { Nav } from 'react-bootstrap';
 
 const Header = () => {
 
+  const [active, setActive] = useState("/create");
   const dispatch = useDispatch();
+  const history = useHistory();
+  const location = useLocation();
 
-  const logout = () => {
-    dispatch(startLogout());
-  };
+  const onSelect = (key) => {
+
+    if (key === 'logout') {
+      dispatch(startLogout());
+    } else {
+      history.push(key);
+    }
+  }
+
+  useEffect(() => {
+    setActive(location.pathname);
+  }, [])
 
   return (
     <div>
@@ -20,21 +33,17 @@ const Header = () => {
       </div>
 
       <div className="content-container">
-        <div className="navbar-group">
-          <div className="navbar-group__item">
-            <Link to='/create' className="navbar-group__link">
-              Request
-            </Link>
-          </div>
-          <div className="navbar-group__item">
-            <Link to='/monitor' className="navbar-group__link">
-              Monitor
-            </Link>
-          </div>
-          <div className="navbar-group__item">
-            <button className="navbar-group__button" onClick={logout}>Logout</button>
-          </div>
-        </div>
+        <Nav variant="pills" activeKey={active} onSelect={onSelect}>
+          <Nav.Item>
+            <Nav.Link eventKey="/create">Add Request</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="/monitor">View Requests</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="logout">Logout</Nav.Link>
+          </Nav.Item>
+        </Nav>
       </div>
     </div>
   )
@@ -42,14 +51,19 @@ const Header = () => {
 
 export default Header;
 
-// <div className="content-container">
-//   <Link to='/create'>
-//     <h1 >Add Request</h1>
-//   </Link>
-//   <Link to='/monitor'>
-//     <h1 >View Requests</h1>
-//   </Link>
-//   <div>
-//     <button onClick={logout}>Logout</button>
+// <div className="navbar-group">
+//   <div className="navbar-group__item">
+//     <Link to='/create' className="navbar-group__link">
+//       Request
+//             </Link>
 //   </div>
+//   <div className="navbar-group__item">
+//     <Link to='/monitor' className="navbar-group__link">
+//       Monitor
+//             </Link>
+//   </div>
+//   <div className="navbar-group__item">
+//     <button className="navbar-group__button" onClick={logout}>Logout</button>
+//   </div>
+//   <button onClick={clicked}>test</button>
 // </div>

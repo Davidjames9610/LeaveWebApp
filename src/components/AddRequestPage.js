@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
+
 import { startAddRequest } from '../store/actions/requests';
 import RequestForm from './RequestForm';
 
 const AddRequestPage = (props) => {
+  const history = useHistory();
 
-  useEffect(() => {
-    console.log("props: ", props.history);
-  }, []);
+  // useEffect(() => {
+  //   console.log("props: ", props.history);
+  // }, []);
 
   const dispatch = useDispatch();
 
@@ -22,7 +25,7 @@ const AddRequestPage = (props) => {
         <RequestForm
           onSubmit={(request) => {
             dispatch(startAddRequest(request));  //async 
-            props.history.push('/monitor');
+            history.push('/monitor');
           }}
         />
       </div>
