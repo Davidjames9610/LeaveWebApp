@@ -16,8 +16,9 @@ export const startAddRequest = (requestData = {}) => {
       reason = '',
       startDate = 0,
       endDate = 0,
+      duration = 1,
     } = requestData;
-    const request = { firstName, lastName, type, reason, startDate, endDate };
+    const request = { firstName, lastName, type, reason, startDate, endDate, duration };
 
     return database.ref(`users/${uid}/requests`).push(request).then((ref) => {
       dispatch(addRequest({

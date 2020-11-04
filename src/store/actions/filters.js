@@ -10,18 +10,18 @@ export const sortByDate = () => ({
 });
 
 // SORT_BY_AMOUNT
-export const sortByAmount = () => ({
-  type: 'SORT_BY_AMOUNT'
+export const sortByDuration = () => ({
+  type: 'SORT_BY_DURATION'
 });
 
-// SET_START_DATE
-export const setStartDate = (startDate) => ({
-  type: 'SET_START_DATE',
-  startDate
-});
+// // SET_START_DATE
+// export const setStartDate = (startDate) => ({
+//   type: 'SET_START_DATE',
+//   startDate
+// });
 
-// SET_END_DATE
-export const setEndDate = (endDate) => ({
-  type: 'SET_END_DATE',
-  endDate
-});
+// // SET_END_DATE
+// export const setEndDate = (endDate) => ({
+//   type: 'SET_END_DATE',
+//   endDate
+// });

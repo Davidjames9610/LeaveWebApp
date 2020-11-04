@@ -14,7 +14,7 @@ const Header = () => {
     <header className="header">
       <div className="content-container">
         <div className="header__content">
-          <h1 className="header__title">Excuse Me</h1>
+          <h1 className="header__title">ExcuseMe</h1>
           <Link to='/create'>
             <h1 className="header__title">Add Request</h1>
           </Link>

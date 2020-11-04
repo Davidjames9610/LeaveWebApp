@@ -1,16 +1,20 @@
 
-const getVisibleRequests = (requests, { text, sortBy, startDate, endDate }) => {
+const getVisibleRequests = (requests, { text, sortBy }) => {
   return requests.filter((request) => {
-    const startDateMatch = typeof startDate !== 'number' || request.createdAt >= startDate;
-    const endDateMatch = typeof endDate !== 'number' || request.createdAt <= endDate;
-    const textMatch = request.description.toLowerCase().includes(text.toLowerCase());
 
-    return startDateMatch && endDateMatch && textMatch;
+    const textMatch = (request.type.toLowerCase().includes(text.toLowerCase()) ||
+      request.firstName.toLowerCase().includes(text.toLowerCase()) ||
+      request.lastName.toLowerCase().includes(text.toLowerCase()) ||
+      request.reason.toLowerCase().includes(text.toLowerCase())
+    );
+
+    return textMatch;
   }).sort((a, b) => {
     if (sortBy === 'date') {
-      return a.createdAt < b.createdAt ? 1 : -1;
-    } else if (sortBy === 'amount') {
-      return a.amount < b.amount ? 1 : -1;
+      return a.startDate < b.startDate ? -1 : 1;
+    } else if (sortBy === 'duration') {
+      console.log('called');
+      return a.duration < b.duration ? 1 : -1;
     }
   });
 };

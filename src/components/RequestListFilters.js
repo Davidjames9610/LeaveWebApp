@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setTextFilter, sortByDate, sortByAmount } from '../store/actions/filters';
+import { setTextFilter, sortByDate, sortByDuration } from '../store/actions/filters';
 
 const RequestListFilters = () => {
 
@@ -28,13 +28,13 @@ const RequestListFilters = () => {
             onChange={(e) => {
               if (e.target.value === 'date') {
                 dispatch(sortByDate());
-              } else if (e.target.value === 'amount') {
-                dispatch(sortByAmount());
+              } else if (e.target.value === 'duration') {
+                dispatch(sortByDuration());
               }
             }}
           >
             <option value="date">Date</option>
-            <option value="amount">Length</option>
+            <option value="duration">Duration</option>
           </select>
         </div>
       </div>

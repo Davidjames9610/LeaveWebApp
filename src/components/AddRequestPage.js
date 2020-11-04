@@ -11,7 +11,7 @@ const AddRequestPage = (props) => {
     <div>
       <div className="page-header">
         <div className="content-container">
-          <h1 className="page-header__title">Please add your Request bellow</h1>
+          <h1 className="page-header__title">Please add your Request below</h1>
         </div>
       </div>
       <div className="content-container">
