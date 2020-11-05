@@ -7,12 +7,25 @@ import { Nav } from 'react-bootstrap';
 const Header = () => {
 
   const [active, setActive] = useState("/create");
+
+  const [addStyle, setAddStyle] = useState();
+  const [viewStyle, setViewStyle] = useState();
+
+  const activeButton = {
+    color: 'white',
+    background: 'black'
+  }
+
+  const normalButton = {
+    color: 'black',
+    background: 'white'
+  }
+
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
 
   const onSelect = (key) => {
-
     if (key === 'logout') {
       dispatch(startLogout());
     } else {
@@ -22,7 +35,20 @@ const Header = () => {
 
   useEffect(() => {
     setActive(location.pathname);
+
+    if (location.pathname === '/create') {
+      console.log("create");
+      setAddStyle(activeButton);
+      setViewStyle(normalButton);
+    }
+    else if (location.pathname === '/monitor') {
+      setAddStyle(normalButton);
+      setViewStyle(activeButton);
+    }
   }, [])
+
+
+
 
   return (
     <div>
@@ -35,10 +61,10 @@ const Header = () => {
       <div className="content-container">
         <Nav variant="pills" activeKey={active} onSelect={onSelect}>
           <Nav.Item>
-            <Nav.Link eventKey="/create">Add Request</Nav.Link>
+            <Nav.Link style={addStyle} eventKey="/create">Add</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="/monitor">View Requests</Nav.Link>
+            <Nav.Link style={viewStyle} eventKey="/monitor">View</Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link eventKey="logout">Logout</Nav.Link>

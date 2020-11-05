@@ -63,9 +63,7 @@ const RequestForm = (props) => {
     const onDatesChange = ({ startDate, endDate }) => {
 
         setRange({ startDate, endDate })
-
         const time = (moment(endDate).diff(moment(startDate), 'days') + 1)
-
         if (time) {
             console.log(time);
             setDuration(time);
@@ -75,31 +73,32 @@ const RequestForm = (props) => {
     return (
         <div>
             <form className="form" onSubmit={onSubmit}>
-                {state.error && <p className="form__error">{state.error}</p>}
+                {state.error ? (<p className="form__error">Name error</p>) : (<p className="form__subtitle">First Name</p>)}
                 <input
                     type="text"
-                    placeholder="First Name"
-                    autoFocus
-                    className="text-input"
+                    //placeholder="First Name"
+                    className="form__text-input"
                     name="firstName"
                     value={state.firstName}
                     onChange={onChange}
                 />
+                <p className="form__subtitle">Last Name</p>
                 <input
                     type="text"
-                    placeholder="Last Name"
+                    //placeholder="Last Name"
                     autoFocus
-                    className="text-input"
+                    className="form__text-input"
                     name="lastName"
                     value={state.lastName}
                     onChange={onChange}
                 />
+                <p className="form__subtitle">Select type</p>
                 <select
                     value={myType}
-                    className="select"
+                    className="form__select"
                     onChange={onTypeChange}
                 >
-                    <option value="" selected disabled hidden>Select Request type</option>
+                    <option value="" selected disabled hidden>Select...</option>
                     <option value="Sick">Sick</option>
                     <option value="Casual">Casual</option>
                     <option value="Maternity">Maternity</option>
@@ -108,16 +107,16 @@ const RequestForm = (props) => {
                     <option value="Compensatory">Compensatory</option>
                     <option value="Sabbatical">Sabbatical</option>
                     <option value="Unpaid">Unpaid</option>
-
                 </select>
+                <p className="form__subtitle">Reason</p>
                 <textarea
-                    placeholder="Please add a note for your Request"
                     value={state.reason}
                     name="reason"
-                    className="textarea"
+                    className="form__textarea"
                     onChange={onChange}
                 >
                 </textarea>
+                <p className="form__subtitle">Please select dates</p>
                 <DateRangePicker
                     startDate={range.startDate}
                     startDateId="your_unique_start_date_id"
@@ -126,8 +125,9 @@ const RequestForm = (props) => {
                     onDatesChange={onDatesChange}
                     focusedInput={focusedInput}
                     onFocusChange={onFocusChangeRangeHandler}
+
                 />
-                <div className="duration">
+                <div className="form__duration">
                     <span>You have requested {duration}</span>
                     {duration === 1 ? (<span> day</span>) : (<span> days</span>)}
                     <span> of leave</span>
@@ -142,10 +142,3 @@ const RequestForm = (props) => {
 
 export { RequestForm as default }
 
-
-            // <p>firstname: {state.firstName}</p>
-            // <p>lastname: {state.lastName}</p>
-            // <p>note: {state.reason}</p>
-            // <p>type: {myType}</p>
-            // <p>start date: {moment(range.startDate).format('MMMM Do, YYYY')}</p>
-            // <p>end date: {moment(range.endDate).format('MMMM Do, YYYY')}</p>
