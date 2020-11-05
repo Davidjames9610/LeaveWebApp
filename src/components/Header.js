@@ -12,8 +12,8 @@ const Header = () => {
   const [viewStyle, setViewStyle] = useState();
 
   const activeButton = {
-    color: 'white',
-    background: 'black'
+    color: '#202124',
+    background: '#EBEDED'
   }
 
   const normalButton = {
@@ -37,7 +37,6 @@ const Header = () => {
     setActive(location.pathname);
 
     if (location.pathname === '/create') {
-      console.log("create");
       setAddStyle(activeButton);
       setViewStyle(normalButton);
     }

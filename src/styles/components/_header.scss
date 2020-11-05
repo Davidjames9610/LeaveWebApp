@@ -18,11 +18,15 @@
 .nav-link{
 background-color: white;
 color:black;
-display: flex;
-padding: $s-size $xl-size;
+display: inline-block;
+padding-top: 10px;
 font-family: Helvetica;
-font-weight: normal;
-
+font-weight: Bold;
+font-size: 13px;
+text-align: center;
+width: 111px;
+height: 40px;
+letter-spacing: 0px;
 }
 
 .nav-link:hover{
