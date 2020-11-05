@@ -1,23 +1,14 @@
 .page-header {
-  background: $background-grey;
-  margin: $s-size;
-  padding: $m-size 0;
-}
-
-.page-header__actions {
-  margin-top: $m-size;
+  background: pink;
+  margin-top: 24px;
+  padding: 0px;
 }
 
 .page-header__title {
-
-  font-weight: 400;
+  font-weight: bold;
   margin: 0;
   color: $title-grey;
   text-align:left;
   font-size: 24px;
   font-family: Helvetica;
-  font-weight: bold;
-  span {
-    font-weight: 700;
-  }
 }

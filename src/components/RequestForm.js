@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import moment from 'moment';
+
+import { Row, Col, Form } from 'react-bootstrap';
+import FormControl from 'react-bootstrap/FormControl';
+import FormGroup from 'react-bootstrap/FormGroup';
+import FormLabel from 'react-bootstrap/FormLabel';
+
 import { DateRangePicker } from "react-dates";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
+import { Formik, Field } from 'formik';
+import * as Yup from 'yup';
 
 const RequestForm = (props) => {
 
@@ -69,10 +77,10 @@ const RequestForm = (props) => {
             setDuration(time);
         }
     }
-
+    
     return (
         <div>
-            <form className="form" onSubmit={onSubmit}>
+               <form className="form" onSubmit={onSubmit}>
                 {state.error ? (<p className="form__error">Name error</p>) : (<p className="form__subtitle">First Name</p>)}
                 <input
                     type="text"
@@ -125,10 +133,10 @@ const RequestForm = (props) => {
                     onDatesChange={onDatesChange}
                     focusedInput={focusedInput}
                     onFocusChange={onFocusChangeRangeHandler}
-
+                    
                 />
                 <div className="form__duration">
-                    <span>You have requested {duration}</span>
+                       <span>You have requested {duration}</span>
                     {duration === 1 ? (<span> day</span>) : (<span> days</span>)}
                     <span> of leave</span>
                 </div>
@@ -137,7 +145,7 @@ const RequestForm = (props) => {
                 </div>
             </form>
         </div>
-    )
+    );
 }
 
 export { RequestForm as default }

@@ -46,9 +46,6 @@ const Header = () => {
     }
   }, [])
 
-
-
-
   return (
     <div>
       <div className="content-container">
@@ -58,17 +55,19 @@ const Header = () => {
       </div>
 
       <div className="content-container">
-        <Nav variant="pills" activeKey={active} onSelect={onSelect}>
-          <Nav.Item>
-            <Nav.Link style={addStyle} eventKey="/create">Add</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link style={viewStyle} eventKey="/monitor">View</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link eventKey="logout">Logout</Nav.Link>
-          </Nav.Item>
-        </Nav>
+        <div className="header__nav">
+          <Nav variant="pills" activeKey={active} onSelect={onSelect}>
+            <Nav.Item>
+              <Nav.Link style={addStyle} eventKey="/create">Add</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link style={viewStyle} eventKey="/monitor">View</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="logout">Logout</Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </div>
       </div>
     </div>
   )
