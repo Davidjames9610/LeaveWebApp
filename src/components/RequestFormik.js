@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 
 import { Row, Col, Form } from 'react-bootstrap';
@@ -13,35 +13,41 @@ const SignupSchema = Yup.object().shape({
     firstName: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
-        .required('Required'),
+        .required('Please add your first name'),
     lastName: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
-        .required('Required')
-    // reason: Yup.string()
-    //     .required('Required')
-    //     .min(2, 'Too Short!'),
-    // type: Yup.string()
-    //     .required('A Type is Required')
+        .required('Please add your last name'),
+    reason: Yup.string()
+        .required('Required'),
+    type: Yup.string()
+        .required('Please select')
 });
 
-const RequestFormik = () => {
-    const [touched, setTouched] = useState({
-        firstName: false,
-        lastName: false,
-        startDate: false,
-        endDate: false,
-        reason: false,
-        type: false
+const RequestFormik = (props) => {
+
+    const [myDates, setDates] = useState({
+        startDate: moment().format('YYYY-MM-DD'),
+        endDate: moment().format('YYYY-MM-DD')
     });
 
-    const handleBlur = (data) => {
-        setTouched({ ...touched, [data.target.id]: true });
-    }
+    const [duration, setDuration] = useState(1);
 
-    const getState = () => {
-        console.log(touched);
-    }
+    const handleDateBlur = (change) => {
+        //console.log(change.target)
+        setDates({ ...myDates, [change.target.id]: change.target.value });
+    };
+
+    useEffect(() => {
+        console.log("dates updated");
+        //calculate duration
+
+        const time = (moment(myDates.endDate).diff(moment(myDates.startDate), 'days') + 1);
+        //console.log(time);
+        if (time > 0) {
+            setDuration(time);
+        };
+    }, [myDates])
 
     const formik = useFormik({
         initialValues: {
@@ -49,11 +55,23 @@ const RequestFormik = () => {
             lastName: '',
             reason: '',
             type: '',
-            startDate: '',
-            endDate: ''
+            startDate: moment().format('YYYY-MM-DD'),
+            endDate: moment().format('YYYY-MM-DD')
         },
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+
+            // console.log("submit!");
+            // //alert(JSON.stringify(values, null, 2));
+
+            props.onSubmit({
+                firstName: values.firstName,
+                lastName: values.lastName,
+                type: values.type,
+                reason: values.reason,
+                startDate: moment(values.startDate).valueOf(),
+                endDate: moment(values.endDate).valueOf(),
+                duration: duration
+            });
         },
         validationSchema: SignupSchema,
     });
@@ -62,25 +80,27 @@ const RequestFormik = () => {
             <Row>
                 <Col>
                     <FormGroup>
-                        {(touched.firstName === true) && (formik.errors.firstName != null) ? (<p>{formik.errors.firstName}</p>) : (<p>First Name</p>)}
+                        {formik.errors.firstName ? (<FormLabel>{formik.errors.firstName}</FormLabel>) : (<FormLabel>First Name</FormLabel>)}
                         <FormControl
+                            plaintext
                             id="firstName"
-                            //name="firstName"
+                            name="firstName"
                             value={formik.values.firstName}
                             onChange={formik.handleChange}
-                            onBlur={handleBlur}
+                            className="form__textInput"
                         />
                     </FormGroup>
                 </Col>
                 <Col>
                     <FormGroup>
-                        {(touched.lastName === true) && (formik.errors.lastName != null) ? (<p>{formik.errors.lastName}</p>) : (<p>Last Name</p>)}
+                        {formik.errors.lastName ? (<FormLabel>{formik.errors.lastName}</FormLabel>) : (<FormLabel>Last Name</FormLabel>)}
                         <FormControl
+                            plaintext
                             id="lastName"
                             name="lastName"
                             value={formik.values.lastName}
                             onChange={formik.handleChange}
-                            onBlur={handleBlur}
+                            className="form__textInput"
                         />
                     </FormGroup>
                 </Col>
@@ -88,27 +108,29 @@ const RequestFormik = () => {
             <Row>
                 <Col>
                     <FormGroup>
-                        {(touched.startDate === true) && (formik.errors.startDate != null) ? (<p>{formik.errors.startDate}</p>) : (<p>Start Date</p>)}
+                        {formik.errors.startDate ? (<FormLabel>{formik.errors.startDate}</FormLabel>) : (<FormLabel>Start Date</FormLabel>)}
                         <FormControl
                             type="date"
                             id="startDate"
                             name="startDate"
                             value={formik.values.startDate}
                             onChange={formik.handleChange}
-                            onBlur={handleBlur}
+                            onBlur={handleDateBlur}
+                            className="form__textInput"
                         />
                     </FormGroup>
                 </Col>
                 <Col>
                     <FormGroup>
-                        {(touched.endDate === true) && (formik.errors.endDate != null) ? (<p>{formik.errors.endDate}</p>) : (<p>End Date</p>)}
+                        {formik.errors.endDate ? (<FormLabel>{formik.errors.endDate}</FormLabel>) : (<FormLabel>End Date</FormLabel>)}
                         <FormControl
                             type="date"
                             id="endDate"
                             name="endDate"
                             value={formik.values.endDate}
                             onChange={formik.handleChange}
-                            onBlur={handleBlur}
+                            onBlur={handleDateBlur}
+                            className="form__textInput"
                         />
                     </FormGroup>
                 </Col>
@@ -116,28 +138,30 @@ const RequestFormik = () => {
             <Row>
                 <Col>
                     <FormGroup>
-                        {(touched.reason === true) && (formik.errors.reason != null) ? (<p>{formik.errors.reason}</p>) : (<p>Reason</p>)}
+                        {formik.errors.reason ? (<FormLabel>{formik.errors.reason}</FormLabel>) : (<FormLabel cla>Reason</FormLabel>)}
                         <FormControl
+                            plaintext
                             as="textarea"
                             rows={3}
                             id="reason"
                             name="reason"
                             value={formik.values.reason}
                             onChange={formik.handleChange}
-                            onBlur={handleBlur}
+                            className="form__textArea"
                         />
                     </FormGroup>
                 </Col>
                 <Col>
                     <FormGroup>
-                        {(touched.type === true) && (formik.errors.type != null) ? (<p>{formik.errors.type}</p>) : (<p>Type</p>)}
+                        {formik.errors.type ? (<FormLabel>{formik.errors.type}</FormLabel>) : (<FormLabel>What Type of Leave?</FormLabel>)}
                         <FormControl
+                            plaintext
                             as="select"
                             id="type"
                             name="type"
                             value={formik.values.type}
                             onChange={formik.handleChange}
-                            onBlur={handleBlur}
+                            className="form__select"
                         >
                             <option value="" label="Select a type" />
                             <option value="Sick">Sick</option>
@@ -152,13 +176,19 @@ const RequestFormik = () => {
                     </FormGroup>
                 </Col>
             </Row>
-            <button type="submit">Submit</button>
-            <button onClick={getState}>touched</button>
+            <div className="form__duration">
+                <span>You have requested {duration}</span>
+                {duration === 1 ? (<span> day</span>) : (<span> days</span>)}
+                <span> of leave</span>
+            </div>
+            <button className="form__submit" type="submit">SUBMIT REQUEST</button>
         </form>
     );
 };
 
 export { RequestFormik as default }
+
+
 
 
 

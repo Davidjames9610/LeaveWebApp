@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import RequestForm from './RequestForm';
+import RequestFormik from './RequestFormik';
 import { startEditRequest, startRemoveRequest } from '../store/actions/requests';
 
 const EditRequestPage = (props) => {
@@ -17,7 +17,7 @@ const EditRequestPage = (props) => {
         </div>
       </div>
       <div className="content-container">
-        <RequestForm
+        <RequestFormik
           request={request}
           onSubmit={(newrequest) => {
             dispatch(startEditRequest(request.id, newrequest));  //async 

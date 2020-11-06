@@ -1,69 +1,7 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 24px;
-  background-color: $background-grey;
-}
-
 
 .form__container{
   margin-top: 24px;
   background-color: $background-grey;
-}
-
-.form__subtitle{
-text-align: left;
-letter-spacing: 0px;
-color: #202124;
-opacity: 1;
-font-weight: bold;
-font-size: 13px;
-margin-bottom: 0;
-}
-
-.form__error {
-text-align: left;
-letter-spacing: 0px;
-opacity: 1;
-font-weight: bold;
-font-size: 13px;
-margin-bottom: 0;
-  color: red;
-  font-style: italic;
-}
-
-.form__text-input{
-  border: 2px solid $border-grey;
-  border-radius: 6px;
-  height: 40px;
-  font-size: 13px;   
-  font-weight: normal;
-  padding: 0 $vs-size;
-  margin-bottom: $s-size;
-}
-
-.form__text-input:focus{
-  border-width: 0;
-}
-
-.form__select{
-  border: 2px solid $border-grey;
-  border-radius: 6px;
-  height: 45px;
-  font-size: 13px;  
-  font-weight: normal;
-  padding: 0 $vs-size;
-  margin-bottom: $s-size;
-}
-
-.form__textarea {
-  height: 40px;
-  border: 2px solid $border-grey;
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: normal;
-  padding: 0 $vs-size;
-  margin-bottom: $s-size;
 }
 
 .form__duration{
@@ -73,5 +11,66 @@ margin-bottom: 0;
   padding: 0;
   margin-bottom: $s-size;
 }
+
+.form__submit{
+  background-color:$button-red;
+  color:white;
+  border-radius: 6px;
+  width: 152px;
+  height: 40px;
+  border-color: transparent;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size:11px;
+  letter-spacing: normal;
+  opacity: 1;
+}
+
+.form__textInput{
+  background-color: white;
+  border: 2px solid $unnamed-color-ebeded;
+  border-radius: 6px;
+  padding-left:16px;
+  height: 40px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form__textInput:focus{
+  outline: none;
+  border: 2px solid $unnamed-color-72acff;
+}
+
+.form__textArea{
+  background-color: white;
+  border: 2px solid $unnamed-color-ebeded;
+  border-radius: 6px;
+  padding-left:16px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form__textArea:focus{
+  outline: none;
+  border: 2px solid $unnamed-color-72acff;
+}
+
+.form__select{
+  background-color: white;
+  border: 2px solid $unnamed-color-ebeded;
+  border-radius: 6px;
+  padding-left:16px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 40px;
+}
+
+.form__select:focus{
+  outline: none;
+  border: 2px solid $unnamed-color-72acff;
+}
+
+
 
 
