@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import RequestFormik from './RequestFormik';
-import { startEditRequest, startRemoveRequest } from '../store/actions/requests';
+import { startEditRequest } from '../store/actions/requests';
 
 const EditRequestPage = (props) => {
   const requests = useSelector(state => state.requests);
@@ -23,11 +23,8 @@ const EditRequestPage = (props) => {
             dispatch(startEditRequest(request.id, newrequest));  //async 
             props.history.push('/monitor');
           }}
+          edit={true}
         />
-        <button className="button button--secondary" onClick={() => {
-          dispatch(startRemoveRequest({ id: request.id }));
-          props.history.push('/monitor');
-        }}>Remove Leave Request</button>
       </div>
     </div>
   );

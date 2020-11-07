@@ -2,7 +2,7 @@
 .header__content {
   align-items: left;
   margin-top: 50px;
-  background: blue; //$background-grey;
+  background: $background-grey;
 }
 
 .header__title {
@@ -16,7 +16,7 @@
 }
 
 .header__nav{
-  background-color: green;
+  background-color:$background-grey;
   margin-top: 40px;
   width: 100%;
   

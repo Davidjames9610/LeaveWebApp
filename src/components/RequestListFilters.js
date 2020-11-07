@@ -45,7 +45,6 @@ const RequestListFilters = () => {
 
   return (
     <div className="content-container">
-
       <form className="form__container">
         <Row>
           <Col>

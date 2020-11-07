@@ -7,6 +7,11 @@ import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
 import FormLabel from 'react-bootstrap/FormLabel';
 
+// for removing request
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { startRemoveRequest } from '../store/actions/requests';
+
 import { useFormik } from 'formik';
 
 const SignupSchema = Yup.object().shape({
@@ -25,6 +30,9 @@ const SignupSchema = Yup.object().shape({
 });
 
 const RequestFormik = (props) => {
+
+    const history = useHistory();
+    const dispatch = useDispatch();
 
     const [myDates, setDates] = useState({
         startDate: moment().format('YYYY-MM-DD'),
@@ -47,7 +55,17 @@ const RequestFormik = (props) => {
         if (time > 0) {
             setDuration(time);
         };
-    }, [myDates])
+    }, [myDates]);
+
+    const handleRemove = () => {
+        //console.log("removing request with id: ", props.request.id);
+        dispatch(startRemoveRequest({ id: props.request.id }));
+        history.push('/monitor');
+    }
+
+    const testbutton = () => {
+        console.log(props.edit);
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -62,7 +80,6 @@ const RequestFormik = (props) => {
 
             // console.log("submit!");
             // //alert(JSON.stringify(values, null, 2));
-
             props.onSubmit({
                 firstName: values.firstName,
                 lastName: values.lastName,
@@ -181,8 +198,12 @@ const RequestFormik = (props) => {
                 {duration === 1 ? (<span> day</span>) : (<span> days</span>)}
                 <span> of leave</span>
             </div>
-            <button className="form__submit" type="submit">SUBMIT REQUEST</button>
+            <div className="form__buttonContainer">
+                <button className="form__submit" type="submit">SUBMIT REQUEST</button>
+                {props.edit ? (<button onClick={handleRemove} className="form__removeRequest" type="button">REMOVE REQUEST</button>) : (null)}
+            </div>
         </form>
+
     );
 };
 
