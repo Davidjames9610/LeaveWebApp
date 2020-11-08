@@ -27,9 +27,6 @@ const RequestList = () => {
             <Col >
               <p className="list__heading">TYPE</p>
             </Col>
-            <Col bsPrefix="list__lastCol">
-              <p className="list__heading"></p>
-            </Col>
           </Row>
         </div>
         {
