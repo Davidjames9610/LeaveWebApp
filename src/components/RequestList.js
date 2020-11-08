@@ -2,15 +2,12 @@ import React from 'react';
 import RequestListItem from './RequestListItem';
 import selectRequests from '../store/selectors/requests';
 import { useSelector } from "react-redux";
-//import { addRequest } from '../store/actions/requests';
 import { Row, Col } from 'react-bootstrap';
 
 
 const RequestList = () => {
   const requests = useSelector(state => state.requests);
   const filters = useSelector(state => state.filters);
-
-
   const filteredRequests = selectRequests(requests, filters);
 
   return (
@@ -30,15 +27,9 @@ const RequestList = () => {
           </Row>
         </div>
         {
-          filteredRequests.length === 0 ? (
-            <div className="list-item list-item--message">
-              <span>No requests</span>
-            </div>
-          ) : (
-              filteredRequests.map((request) => {
-                return <RequestListItem key={request.id} {...request} desktopMode={false} />;
-              })
-            )
+          filteredRequests.map((request) => {
+            return <RequestListItem key={request.id} {...request} desktopMode={false} />;
+          })
         }
       </div>
       <div className="show-for-desktop">
@@ -68,15 +59,9 @@ const RequestList = () => {
           </Row>
         </div>
         {
-          filteredRequests.length === 0 ? (
-            <div className="list-item list-item--message">
-              <span>No requests</span>
-            </div>
-          ) : (
-              filteredRequests.map((request) => {
-                return <RequestListItem key={request.id} {...request} desktopMode={true} />;
-              })
-            )
+          filteredRequests.map((request) => {
+            return <RequestListItem key={request.id} {...request} desktopMode={true} />;
+          })
         }
       </div>
     </div>

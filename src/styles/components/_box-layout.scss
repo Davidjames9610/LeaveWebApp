@@ -10,7 +10,7 @@
 
 .box-layout__box {
   background: $white;
-  border-radius: 3px;
+  border-radius: 12px;
   padding: $m-size $m-size;
   text-align: center;
   width: 35rem;
@@ -18,15 +18,29 @@
 
 .box-layout__title {
   margin: 0 0 $m-size 0;
-  line-height: 1;
-  font-style: $unnamed-font-weight-bold; 
-  color: $unnamed-color-72acff;
-  opacity: 1;
+  color: $blue;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: Helvetica;
+  font-weight: bold;
 }
 
 .normal-text{
   color:$title-grey;
-  size: $m-size;
+  size: 13px;
+  font-family: Helvetica;
 }
 
+.login__button{
+  background-color: transparent;
+  border: 3px solid $button-red;
+  border-radius: 6px;
+  width: 152px;
+  height: 40px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size:14px;
+  color:$button-red;
+}
 

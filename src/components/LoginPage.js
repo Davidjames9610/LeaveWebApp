@@ -9,9 +9,9 @@ import { startLogin } from '../store/actions/auth';
 export const LoginPage = ({ startLogin }) => (
   <div className="box-layout">
     <div className="box-layout__box">
-      <h1 className="box-layout__title">Excuse Me</h1>
+      <h1 className="box-layout__title">ExcuseMe</h1>
       <p className="normal-text">Take control of your leave</p>
-      <button className="button" onClick={startLogin}>Login with Google</button>
+      <button className="login__button" onClick={startLogin}>Login with Google</button>
     </div>
   </div>
 );
