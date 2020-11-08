@@ -14,47 +14,78 @@ const RequestList = () => {
   const filteredRequests = selectRequests(requests, filters);
 
   return (
-    <div className="show-for-desktop">
-      <div className="list-container">
-        <Row>
-          <Col bsPrefix="list__firstCol">
-            <p className="list__heading"></p>
-          </Col>
-          <Col>
-            <p className="list__heading">REQUEST</p>
-          </Col>
-          <Col>
-            <p className="list__heading">START DATE</p>
-          </Col>
-          <Col >
-            <p className="list__heading">END DATE</p>
-          </Col>
-          <Col >
-            <p className="list__heading">DURATION</p>
-          </Col>
-          <Col >
-            <p className="list__heading">TYPE</p>
-          </Col>
-          <Col bsPrefix="list__lastCol">
-            <p className="list__heading">*</p>
-          </Col>
-        </Row>
+    <div>
+      <div className="show-for-mobile">
+        <div className="list-container">
+          <Row>
+            <Col bsPrefix="list__firstCol">
+              <p className="list__heading"></p>
+            </Col>
+            <Col>
+              <p className="list__heading">REQUEST</p>
+            </Col>
+            <Col >
+              <p className="list__heading">TYPE</p>
+            </Col>
+            <Col bsPrefix="list__lastCol">
+              <p className="list__heading"></p>
+            </Col>
+          </Row>
+        </div>
+        {
+          filteredRequests.length === 0 ? (
+            <div className="list-item list-item--message">
+              <span>No requests</span>
+            </div>
+          ) : (
+              filteredRequests.map((request) => {
+                return <RequestListItem key={request.id} {...request} desktopMode={false} />;
+              })
+            )
+        }
       </div>
-      {
-        filteredRequests.length === 0 ? (
-          <div className="list-item list-item--message">
-            <span>No requests</span>
-          </div>
-        ) : (
-            filteredRequests.map((request) => {
-              return <RequestListItem key={request.id} {...request} desktopMode={true} />;
-            })
-          )
-      }
+      <div className="show-for-desktop">
+        <div className="list-container">
+          <Row>
+            <Col bsPrefix="list__firstCol">
+              <p className="list__heading"></p>
+            </Col>
+            <Col>
+              <p className="list__heading">REQUEST</p>
+            </Col>
+            <Col>
+              <p className="list__heading">START DATE</p>
+            </Col>
+            <Col >
+              <p className="list__heading">END DATE</p>
+            </Col>
+            <Col >
+              <p className="list__heading">DURATION</p>
+            </Col>
+            <Col >
+              <p className="list__heading">TYPE</p>
+            </Col>
+            <Col bsPrefix="list__lastCol">
+              <p className="list__heading"></p>
+            </Col>
+          </Row>
+        </div>
+        {
+          filteredRequests.length === 0 ? (
+            <div className="list-item list-item--message">
+              <span>No requests</span>
+            </div>
+          ) : (
+              filteredRequests.map((request) => {
+                return <RequestListItem key={request.id} {...request} desktopMode={true} />;
+              })
+            )
+        }
+      </div>
     </div>
   );
 };
 
-//<div className="show-for-mobile">Request</div>
+//
 
 export { RequestList as default };

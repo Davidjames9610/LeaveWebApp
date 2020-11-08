@@ -6,37 +6,6 @@ import FormGroup from 'react-bootstrap/FormGroup';
 import FormLabel from 'react-bootstrap/FormLabel';
 import { Row, Col, Form } from 'react-bootstrap';
 
-// <div>
-//   <div>
-//     <input
-//       type="text"
-//       placeholder="Search Requests"
-//       value={filters.text}
-//       onChange={(e) => {
-//         dispatch(setTextFilter(e.target.value));
-//       }}
-//     />
-//   </div>
-//   <div className="input-group__item">
-//     <select
-//       className="select"
-//       value={filters.sortBy}
-//       onChange={(e) => {
-//         if (e.target.value === 'date') {
-//           dispatch(sortByDate());
-//         } else if (e.target.value === 'duration') {
-//           dispatch(sortByDuration());
-//         }
-//       }}
-//     >
-//       <option value="date">Date</option>
-//       <option value="duration">Duration</option>
-//     </select>
-//   </div>
-// </div>
-//     </div >
-
-
 
 const RequestListFilters = () => {
 
