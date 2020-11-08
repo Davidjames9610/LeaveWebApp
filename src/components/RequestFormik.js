@@ -69,12 +69,12 @@ const RequestFormik = (props) => {
 
     const formik = useFormik({
         initialValues: {
-            firstName: '',
-            lastName: '',
-            reason: '',
-            type: '',
-            startDate: moment().format('YYYY-MM-DD'),
-            endDate: moment().format('YYYY-MM-DD')
+            firstName: props.request ? props.request.firstName : "",
+            lastName: props.request ? props.request.lastName : "",
+            reason: props.request ? props.request.reason : "",
+            type: props.request ? props.request.type : "",
+            startDate: props.request ? moment(props.request.startDate).format('YYYY-MM-DD') : moment().format('YYYY-MM-DD'),
+            endDate: props.request ? moment(props.request.endDate).format('YYYY-MM-DD') : moment().format('YYYY-MM-DD'),
         },
         onSubmit: values => {
 
@@ -97,7 +97,7 @@ const RequestFormik = (props) => {
             <Row>
                 <Col>
                     <FormGroup>
-                        {formik.errors.firstName ? (<FormLabel>{formik.errors.firstName}</FormLabel>) : (<FormLabel>First Name</FormLabel>)}
+                        {formik.errors.firstName ? (<p className='form__entryError'>{formik.errors.firstName}</p>) : (<p className="form__entryLabel">First Name</p>)}
                         <FormControl
                             plaintext
                             id="firstName"
@@ -110,7 +110,7 @@ const RequestFormik = (props) => {
                 </Col>
                 <Col>
                     <FormGroup>
-                        {formik.errors.lastName ? (<FormLabel>{formik.errors.lastName}</FormLabel>) : (<FormLabel>Last Name</FormLabel>)}
+                        {formik.errors.lastName ? (<p className='form__entryError'>{formik.errors.lastName}</p>) : (<p className="form__entryLabel">Last Name</p>)}
                         <FormControl
                             plaintext
                             id="lastName"
@@ -125,7 +125,7 @@ const RequestFormik = (props) => {
             <Row>
                 <Col>
                     <FormGroup>
-                        {formik.errors.startDate ? (<FormLabel>{formik.errors.startDate}</FormLabel>) : (<FormLabel>Start Date</FormLabel>)}
+                        {formik.errors.startDate ? (<p className='form__entryError'>{formik.errors.startDate}</p>) : (<p className="form__entryLabel">Start Date</p>)}
                         <FormControl
                             type="date"
                             id="startDate"
@@ -139,7 +139,7 @@ const RequestFormik = (props) => {
                 </Col>
                 <Col>
                     <FormGroup>
-                        {formik.errors.endDate ? (<FormLabel>{formik.errors.endDate}</FormLabel>) : (<FormLabel>End Date</FormLabel>)}
+                        {formik.errors.endDate ? (<p className='form__entryError'>{formik.errors.endDate}</p>) : (<p className="form__entryLabel">End Date</p>)}
                         <FormControl
                             type="date"
                             id="endDate"
@@ -155,7 +155,7 @@ const RequestFormik = (props) => {
             <Row>
                 <Col>
                     <FormGroup>
-                        {formik.errors.reason ? (<FormLabel>{formik.errors.reason}</FormLabel>) : (<FormLabel cla>Reason</FormLabel>)}
+                        {formik.errors.reason ? (<p className='form__entryError'>{formik.errors.reason}</p>) : (<p className="form__entryLabel">Reason for Leave?</p>)}
                         <FormControl
                             plaintext
                             as="textarea"
@@ -170,7 +170,7 @@ const RequestFormik = (props) => {
                 </Col>
                 <Col>
                     <FormGroup>
-                        {formik.errors.type ? (<FormLabel>{formik.errors.type}</FormLabel>) : (<FormLabel>What Type of Leave?</FormLabel>)}
+                        {formik.errors.type ? (<p className='form__entryError'>{formik.errors.type}</p>) : (<p className="form__entryLabel">Type of Leave?</p>)}
                         <FormControl
                             plaintext
                             as="select"
@@ -199,11 +199,10 @@ const RequestFormik = (props) => {
                 <span> of leave</span>
             </div>
             <div className="form__buttonContainer">
-                <button className="form__submit" type="submit">SUBMIT REQUEST</button>
+                <button className="form__submit" type="submit">SAVE REQUEST</button>
                 {props.edit ? (<button onClick={handleRemove} className="form__removeRequest" type="button">REMOVE REQUEST</button>) : (null)}
             </div>
         </form>
-
     );
 };
 

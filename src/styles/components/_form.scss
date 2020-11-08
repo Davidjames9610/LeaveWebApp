@@ -90,6 +90,23 @@
   border: 2px solid $unnamed-color-72acff;
 }
 
+.form__entryLabel{
+  color:$unnamed-color-202124;
+  font-style:normal;
+  font-weight: bold;
+  font-size:13px;
+  margin-bottom:0px;
+  font-family: Arial, Helvetica, sans-serif;
+} 
+
+.form__entryError{
+  color:$unnamed-color-ff4d4d;
+  font-style:normal;
+  font-weight: bold;
+  font-size:13px;
+  margin-bottom:0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 
 
