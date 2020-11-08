@@ -3,6 +3,8 @@ import RequestListItem from './RequestListItem';
 import selectRequests from '../store/selectors/requests';
 import { useSelector } from "react-redux";
 //import { addRequest } from '../store/actions/requests';
+import { Row, Col } from 'react-bootstrap';
+
 
 const RequestList = () => {
   const requests = useSelector(state => state.requests);
@@ -11,53 +13,32 @@ const RequestList = () => {
 
   const filteredRequests = selectRequests(requests, filters);
 
-  // return (
-  //   <div className="content-container">
-  //     <div className="list-header">
-  //       <div className="show-for-mobile">Request</div>
-  //       <div className="show-for-desktop">Request</div>
-  //       <div className="show-for-desktop">Start</div>
-  //       <div className="show-for-desktop">End</div>
-  //       <div className="show-for-desktop">Duration</div>
-  //       <div className="show-for-desktop">Type</div>
-  //     </div>
-  //     {
-  //       requests.length === 0 ? (
-  //         <div className="list-item list-item--message">
-  //           <span>No requests</span>
-  //         </div>
-  //       ) : (
-  //           requests.map((request) => {
-  //             return <RequestListItem key={request.id} {...request} />;
-  //           })
-  //         )
-  //     }
-  //   </div>
-  // );
-
   return (
-    <div className="content-container">
-      <div className="list-header">
-        <div className="show-for-mobile">Request</div>
-        <div className="show-for-desktop">
-          <div className="row">
-            <div className="col-sm">
-              Request
-            </div>
-            <div className="col-sm">
-              Start
-            </div>
-            <div className="col-sm">
-              End
-            </div>
-            <div className="col-sm">
-              Duration
-            </div>
-            <div className="col-sm">
-              Type
-            </div>
-          </div>
-        </div>
+    <div className="show-for-desktop">
+      <div className="list-container">
+        <Row>
+          <Col bsPrefix="list__firstCol">
+            <p className="list__heading"></p>
+          </Col>
+          <Col>
+            <p className="list__heading">REQUEST</p>
+          </Col>
+          <Col>
+            <p className="list__heading">START DATE</p>
+          </Col>
+          <Col >
+            <p className="list__heading">END DATE</p>
+          </Col>
+          <Col >
+            <p className="list__heading">DURATION</p>
+          </Col>
+          <Col >
+            <p className="list__heading">TYPE</p>
+          </Col>
+          <Col bsPrefix="list__lastCol">
+            <p className="list__heading">*</p>
+          </Col>
+        </Row>
       </div>
       {
         filteredRequests.length === 0 ? (
@@ -66,7 +47,7 @@ const RequestList = () => {
           </div>
         ) : (
             filteredRequests.map((request) => {
-              return <RequestListItem key={request.id} {...request} />;
+              return <RequestListItem key={request.id} {...request} desktopMode={true} />;
             })
           )
       }
@@ -74,5 +55,6 @@ const RequestList = () => {
   );
 };
 
+//<div className="show-for-mobile">Request</div>
 
 export { RequestList as default };

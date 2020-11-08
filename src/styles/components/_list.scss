@@ -1,20 +1,56 @@
+.list-container{
+  margin: 0 auto;
+  padding: 0 $l-size;
+  max-width: 80rem;
+  //background-color: turquoise;
+  border: 2px solid $background-grey;
+  margin-top:5px;
+}
 
-.list-header {
-  background: $off-white;
+.list__heading{
+  //border: 2px solid black;
+  //background: $off-white;
   color: $title-grey;
-  padding: $s-size $s-size;
   font-family: Helvetica;
   font-weight: bold;
+  font-size: 11px;
+  margin-bottom: 0px;
+  padding: none;
 }
 
-.list-item{
-  border: 1px solid darken($off-white, 7%);
-  border-top: none;
-  color: $dark-grey;
-  padding: $s-size $s-size;
-  background: $white;
-  margin-top: $vs-size;
+.list__firstCol{
+  width:30px;
+  text-align: right;
+  //background-color: pink;
 }
+
+.list__symbol{
+border: 2px solid black;
+height:100%;
+background-color: yellow;
+text-align: center;
+margin-bottom: 0px;
+}
+
+.list__lastCol{
+  width:30px;
+}
+
+.list__itemContainer{
+  border: 2px solid white;
+  max-width: 80rem;
+  height:56px;
+  //margin-top:10px;
+  //margin: 0 auto;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:8px;
+  padding-top: 14px;
+  padding-right: $l-size;
+  padding-left: $l-size;
+  background-color: white;
+}
+
 
 .list-item:hover{
   background: $off-white;
@@ -22,28 +58,15 @@
 
 .list-item__title {
   margin: 0;
-  word-break: break-all;
   font-family: Helvetica;
   color:black;
-}
-
-.list-item__sub-title {
-  color: $grey;
-  font-size: $font-size-small;
-}
-
-.list-item__data {
-  margin: $s-size 0 0 0;
-  @media (min-width: $desktop-breakpoint) {
-    margin: 0;
-    padding-left: $s-size;
-  }
+  font-size: 13px;
 }
 
 .list-link:hover{
   text-decoration: none;
   color:black;  
-
 }
+
 
 
